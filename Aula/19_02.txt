@@ -1,0 +1,65 @@
+https://www.inf.ufrgs.br/~rma/documentos/minicurso-weit2013.pdf
+
+Linguagem Lambda é a menor ja feita, considerada universal e leve, equivalente a uma maquina de Turing.
+
+A gramatica do lambda é:
+< expressão > := < nome > | < função > | < aplicação >
+< função > := λ < nome > . < expressão >
+< aplicação > := < expressão >< expressão >
+
+O caractere mais diferente que se usa é: λ
+
+Todos os nomes são locais às definições
+Um nome não predicado por λ é chamado de variável livre.
+
+Deve se tomar cuidado com a substituição de variáveis livres, pois pode ocorrer a captura de variáveis livres.
+(λx.(λy.xy))y
+(λy.y.y) isso é errado
+
+Para evitar a captura de variáveis livres, deve-se renomear as variáveis livres.
+(λx.(λy.xy))y
+(λx.(λt.xt))y = (λt . yt) isso é certo.
+
+
+ARITMÉTICA:
+
+Números podem ser representados pela teoria dos sucessores de Peano.
+0 = λsz.z
+1 = λsz.s(z)
+2 = λsz.s(s(z))
+3 = λsz.s(s(s(z)))
+
+Se perceber os nômeos são representados por funções, onde s é o sucessor e z é o zero, e ele vai sempre assim.
+
+
+FUNÇÃO SUCESSOR:
+
+Pode ser representado por:
+S ≡ λwyx.y(wyx)
+
+A função sucessor é uma função que recebe um número e retorna o próximo número. Ela aplicada a um número n, retorna n+1. Usando 0;
+
+S0 = λwyx.y(wyx)λsz.z = 
+λyx.y(λsz.z)yx = 
+λyx.yx = 
+λsz.s(z) = 1
+
+
+Ex: 
+
+Reduzindo expressão lambda
+
+S1 = (λwyx.y(wyx))λsz.s(z) =  Nesse caso o w é substituído por λsz.s(z),
+λyx.y(λsz.s(z))yx =
+λyx.y(λz.y(z))x =
+λyx.y(y(x)) =
+λyx.s(s(z)) =
+λsz.s(s(z)) = 2
+
+
+S2= (λwyx.y(wyx))λsz.s(s(z)) =
+λyx.y(λsz.s(s(z))yx) = Feita a substituição de W
+λyx.yx(s(s(z))) Aplicando a yx na expressão anterior
+λyx.y(λz.yx(s(s(z)))) Aqui é feita a substituição na expressão original
+λyx.y(y(x(s(s(z))))) Simplificação
+λsz.s(s(s(s(z)))) = 3 Final
