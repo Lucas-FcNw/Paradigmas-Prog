@@ -63,3 +63,65 @@ S2= (λwyx.y(wyx))λsz.s(s(z)) =
 λyx.y(λz.yx(s(s(z)))) Aqui é feita a substituição na expressão original
 λyx.y(y(x(s(s(z))))) Simplificação
 λsz.s(s(s(s(z)))) = 3 Final
+
+
+O S2 está errado, ver de corrigir, teste.
+
+O verdadeiro e falso podem ser escolhidos pela ordem das variáveis, se X vem primeiro ele é true se for Y é false
+
+T = λxy.x   
+
+F = λxy.y
+
+False de A e B
+(λxy.y) A B
+(λy.y) B
+   B
+
+OPERADORES LÓGICOS
+
+Pode ser definido os operadores pela suas tabelas-verdades
+
+OR = λxy.xTy
+
+Tabela Verdade da Porta OU (OR):
+
+x | y | OR
+--|---|---
+T | T | T
+T | F | T
+F | T | T
+F | F | F
+
+Se for sim a resposta é T se for nâo a resposta deve ser Y
+
+Tabela Verdade da Porta E (AND):
+
+AND = λxy.xyF
+
+x | y | AND
+--|---|----
+T | T | T
+T | F | F
+F | T | F
+F | F | F
+
+Aqui o True dá Y e o False é False
+
+Tabela Verdade da porta XOR :
+
+XOR = λxy.x(¬y)y
+
+Tabela Verdade da Porta XOR:
+
+x | y | XOR
+--|---|----
+T | T | F
+T | F | T
+F | T | T
+F | F | F
+
+Aqui o Y é o False e o True é ¬Y
+
+
+
