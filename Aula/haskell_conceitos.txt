@@ -37,3 +37,33 @@ cabecaCauda = (a, xs)
 -- 1 : [2,3]
 -- 1 : 2 : [3]
 -- 1 : 2 : 3 : []
+
+
+
+
+soma [] = 0
+soma (a:xs) = a + soma xs
+
+
+main :: IO ()
+main = do
+    let nums = [1, 2, 3, 4, 5] -- Example list
+    putStrLn $ "The sum of the list is: " ++ show (soma nums)
+
+soma :: [Int] -> Int
+soma [] = 0
+soma (a:xs) = a + soma xs
+
+
+
+
+
+dup [1,2,3] > [1,1,2,2,3,3,]
+
+def duplicate_elements(lst):
+    return [item for item in lst for _ in range(2)]
+
+original_list = [1, 2, 3]
+duplicated_list = duplicate_elements(original_list)
+print(duplicated_list)
+
