@@ -1,0 +1,39 @@
+module Main where   -- indica que é o módulo principal
+
+main :: IO ()
+main = do                  -- início da função principal
+  putStrLn "hello world"   -- imprime hello world
+  print lista1             -- imprime a lista de inteiros
+  print lista2             -- imprime a lista de listas
+  print (fat 5)            -- imprime o fatorial de 5
+  print (soma 3 5)         -- imprime a soma de 3 e 5
+  print cabecaCauda        -- imprime a cabeça e a cauda da lista [1,2,3]
+
+-- fat é fatorial
+fat :: Integer -> Integer
+fat 0 = 1
+fat n = n * fat (n-1)
+
+soma :: Integer -> Integer -> Integer
+soma a b = a + b
+
+-- Listas em Haskell
+lista1 :: [Int]
+lista1 = [1,2,4] -- lista de inteiros
+
+lista2 :: [[Int]]
+lista2 = [[1,2], [], [3]] -- lista de listas de inteiros
+
+-- vamos supor [1,2,3]
+cabecaCauda :: (Int, [Int])
+cabecaCauda = (a, xs)
+  where
+    (a:xs) = [1,2,3]
+
+-- a é a cabeça da lista = 1
+-- xs é a cauda da lista = [2,3]
+
+-- [1,2,3] pode ser escrito de várias formas:
+-- 1 : [2,3]
+-- 1 : 2 : [3]
+-- 1 : 2 : 3 : []
