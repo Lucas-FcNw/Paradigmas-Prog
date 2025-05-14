@@ -46,6 +46,9 @@ npriNat(N,M,[M|X]) :- M2 is M+1, npriNat(N,M2,X).
    
 % Os N menores
 
+menores(_,[],[]).
+menores(N,[M|Ms],[M|X]) :- M<N, menores(N,Ms,X).
+menores(N,[_|X],Y) :- menores(N,X,Y).
 
                         
                         
